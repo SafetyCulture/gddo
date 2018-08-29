@@ -12,7 +12,7 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 
-	"github.com/golang/gddo/log"
+	"github.com/SafetyCulture/gddo/log"
 )
 
 const (
@@ -153,7 +153,7 @@ func buildFlags() *pflag.FlagSet {
 	flags.StringP("config", "c", "", "path to motd config file")
 	flags.String(ConfigProject, "", "Google Cloud Platform project used for Google services")
 	flags.Float64(ConfigRobotThreshold, 100, "Request counter threshold for robots.")
-	flags.String(ConfigAssetsDir, filepath.Join(defaultBase("github.com/golang/gddo/gddo-server"), "assets"), "Base directory for templates and static files.")
+	flags.String(ConfigAssetsDir, filepath.Join(defaultBase("github.com/SafetyCulture/gddo/gddo-server"), "assets"), "Base directory for templates and static files.")
 	flags.Duration(ConfigGetTimeout, 8*time.Second, "Time to wait for package update from the VCS.")
 	flags.Duration(ConfigFirstGetTimeout, 5*time.Second, "Time to wait for first fetch of package from the VCS.")
 	flags.Duration(ConfigMaxAge, 24*time.Hour, "Update package documents older than this age.")
