@@ -259,7 +259,7 @@ func GetGitHubUpdates(ctx context.Context, client *http.Client, pushedAfter stri
 	if pushedAfter == "" {
 		pushedAfter = time.Now().Add(-24 * time.Hour).UTC().Format("2006-01-02T15:04:05Z")
 	}
-	u := "https://api.github.com/search/repositories?order=asc&sort=updated&q=fork:true+language:Go+pushed:>" + pushedAfter
+	u := "https://api.github.com/search/repositories?order=asc&sort=updated&q=fork:true+org:SafetyCulture+language:Go+pushed:>" + pushedAfter
 	var updates struct {
 		Items []struct {
 			FullName string `json:"full_name"`
