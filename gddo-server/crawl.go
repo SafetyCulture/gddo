@@ -22,7 +22,8 @@ import (
 )
 
 var (
-	testdataPat = regexp.MustCompile(`/testdata(?:/|$)`)
+	testdataPat      = regexp.MustCompile(`/testdata(?:/|$)`)
+	safetyCulturePat = regexp.MustCompile(`github.com/SafetyCulture/.*`)
 )
 
 // crawlNote is a message sent to Pub/Sub when a crawl occurs.
@@ -79,6 +80,9 @@ func (s *server) crawlDoc(ctx context.Context, source string, importPath string,
 	} else if testdataPat.MatchString(importPath) {
 		pdoc = nil
 		err = gosrc.NotFoundError{Message: "testdata."}
+	} else if !safetyCulturePat.MatchString(importPath) && (source == "crawl" || source == "new") {
+		pdoc = nil
+		err = gosrc.NotFoundError{Message: "not SafetyCulture."}
 	} else {
 		var pdocNew *doc.Package
 		pdocNew, err = doc.Get(ctx, s.httpClient, importPath, etag)
