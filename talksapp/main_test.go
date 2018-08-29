@@ -20,7 +20,7 @@ import (
 	"google.golang.org/appengine/aetest"
 	"google.golang.org/appengine/memcache"
 
-	"github.com/golang/gddo/gosrc"
+	"github.com/SafetyCulture/gddo/gosrc"
 )
 
 const importPath = "github.com/user/repo/path/to/presentation.slide"

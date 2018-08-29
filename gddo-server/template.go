@@ -27,9 +27,9 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/golang/gddo/doc"
-	"github.com/golang/gddo/gosrc"
-	"github.com/golang/gddo/httputil"
+	"github.com/SafetyCulture/gddo/doc"
+	"github.com/SafetyCulture/gddo/gosrc"
+	"github.com/SafetyCulture/gddo/httputil"
 )
 
 type flashMessage struct {

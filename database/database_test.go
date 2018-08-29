@@ -16,7 +16,7 @@ import (
 	"github.com/garyburd/redigo/redis"
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/golang/gddo/doc"
+	"github.com/SafetyCulture/gddo/doc"
 )
 
 func newDB(t *testing.T) *Database {

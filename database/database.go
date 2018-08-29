@@ -54,8 +54,8 @@ import (
 	"google.golang.org/appengine/remote_api"
 	"google.golang.org/appengine/search"
 
-	"github.com/golang/gddo/doc"
-	"github.com/golang/gddo/gosrc"
+	"github.com/SafetyCulture/gddo/doc"
+	"github.com/SafetyCulture/gddo/gosrc"
 )
 
 type Database struct {
