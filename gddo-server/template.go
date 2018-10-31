@@ -553,7 +553,7 @@ func parseTemplates(dir string, cb *httputil.CacheBusters, v *viper.Viper) (temp
 		"relativePath":      relativePathFn,
 		"sidebarEnabled":    func() bool { return v.GetBool(ConfigSidebar) },
 		"staticPath": func(p string) string {
-			return strings.Join([]string{v.GetString(ConfigStaticPath), cb.AppendQueryParam(p, "v")}, "")
+			return strings.Join([]string{v.GetString(ConfigStaticURL), cb.AppendQueryParam(p, "v")}, "")
 		},
 	}
 	for _, set := range htmlSets {
