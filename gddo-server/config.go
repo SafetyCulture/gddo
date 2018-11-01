@@ -24,7 +24,7 @@ const (
 	githubClientIDEnvVar     = "GITHUB_CLIENT_ID"
 	githubClientSecretEnvVar = "GITHUB_CLIENT_SECRET"
 
-	getStaticURLEnvVar = "STATIC_URL"
+	getBaseURLEnvVar = "BASE_URL"
 )
 
 const (
@@ -35,7 +35,7 @@ const (
 	ConfigAssetsDir         = "assets"
 	ConfigRobotThreshold    = "robot"
 	ConfigGCELogName        = "gce_log_name"
-	ConfigStaticURL         = "static_url"
+	ConfigBaseURL           = "base_url"
 
 	// Database Config
 	ConfigDBServer      = "db-server"
@@ -114,7 +114,7 @@ func loadConfig(ctx context.Context, args []string) (*viper.Viper, error) {
 	v.BindEnv(ConfigGithubToken, githubTokenEnvVar)
 	v.BindEnv(ConfigGithubClientID, githubClientIDEnvVar)
 	v.BindEnv(ConfigGithubClientSecret, githubClientSecretEnvVar)
-	v.BindEnv(ConfigStaticURL, getStaticURLEnvVar)
+	v.BindEnv(ConfigBaseURL, getBaseURLEnvVar)
 
 	// Read from config.
 	if err := readViperConfig(ctx, v); err != nil {
@@ -177,7 +177,7 @@ func buildFlags() *pflag.FlagSet {
 	flags.String(ConfigGAERemoteAPI, "", "Remoteapi endpoint for App Engine Search. Defaults to serviceproxy-dot-${project}.appspot.com.")
 	flags.Float64(ConfigTraceSamplerFraction, 0.1, "Fraction of the requests sampled by the trace API.")
 	flags.Float64(ConfigTraceSamplerMaxQPS, 5, "Max number of requests sampled every second by the trace API.")
-	flags.String(ConfigStaticURL, "", "Custom Static URL used in templates for static resources")
+	flags.String(ConfigBaseURL, "", "Custom Base URL used in templates for static resources and package uris")
 
 	return flags
 }
