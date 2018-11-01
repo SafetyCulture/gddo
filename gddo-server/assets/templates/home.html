@@ -17,7 +17,7 @@ and more.
     {{with .Popular}}
       <h4>Popular Packages</h4>
       <ul class="list-unstyled">
-        {{range .}}<li><a href="/{{.Path | dynamicPath}}">{{.Path}}</a>{{end}}
+        {{range .}}<li><a href="{{dynamicPath "/" .Path}}">{{.Path}}</a>{{end}}
       </ul>
     {{end}}
   </div>
