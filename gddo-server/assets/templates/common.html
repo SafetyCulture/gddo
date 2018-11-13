@@ -39,7 +39,7 @@
 {{define "Pkgs"}}
   <table class="table table-condensed">
   <thead><tr><th>Path</th><th>Synopsis</th></tr></thead>
-  <tbody>{{range .}}<tr><td>{{if .Path|isValidImportPath}}<a href="/{{.Path}}">{{.Path|importPath}}</a>{{else}}{{.Path|importPath}}{{end}}</td><td>{{.Synopsis|importPath}}</td></tr>
+  <tbody>{{range .}}<tr><td>{{if .Path|isValidImportPath}}<a href="/godoc/{{.Path}}">{{.Path|importPath}}</a>{{else}}{{.Path|importPath}}{{end}}</td><td>{{.Synopsis|importPath}}</td></tr>
   {{end}}</tbody>
   </table>
 {{end}}
@@ -95,7 +95,7 @@
 {{if $.pkgs}}<h3 id="pkg-subdirectories">Directories <a class="permalink" href="#pkg-subdirectories">&para;</a></h3>
     <table class="table table-condensed">
     <thead><tr><th>Path</th><th>Synopsis</th></tr></thead>
-    <tbody>{{range $.pkgs}}<tr><td><a href="/{{.Path}}">{{relativePath .Path $.pdoc.ImportPath}}</a><td>{{.Synopsis}}</td></tr>{{end}}</tbody>
+    <tbody>{{range $.pkgs}}<tr><td><a href="/godoc/{{.Path}}">{{relativePath .Path $.pdoc.ImportPath}}</a><td>{{.Synopsis}}</td></tr>{{end}}</tbody>
     </table>
 {{end}}
 <div id="x-pkginfo">
