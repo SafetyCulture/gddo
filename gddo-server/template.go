@@ -290,6 +290,10 @@ func formatPathFrag(path, fragment string) string {
 	if len(path) > 0 && path[0] != '/' {
 		path = "/" + path
 	}
+
+	if !strings.HasPrefix(path, "/godoc") {
+		path = "/godoc" + path
+	}
 	u := url.URL{Path: path, Fragment: fragment}
 	return u.String()
 }
